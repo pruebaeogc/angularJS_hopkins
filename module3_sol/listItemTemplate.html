@@ -1,0 +1,20 @@
+
+<ul>
+      <li ng-repeat="item in list.foundItems">
+
+        <table>
+          <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.short_name }}</td>
+            <td>{{ item.description }}</td>
+            <td>
+               <button class="btn btn-default"
+                       ng-click="list.onRemove({index: $index});">
+               <span class="glyphicon glyphicon-ok"></span>
+                Don't want this one
+              </button>
+            </td>
+          </tr>
+        </table>
+     </li>
+   </ul>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Narrow Down Your Menu Choice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <style >
+    table {
+	font-family: verdana;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+</style>
+  </head>
+
+<body ng-app='NarrowItDownApp'>
+   <div class="container" ng-controller='NarrowItDownController as list'>
+
+
+    <h1>Narrow Down Your Chinese Menu Choice </h1>
+
+
+    <div class="form-group">
+      <input type="text" placeholder="search term"
+             ng-model="list.searchTerm"     class="form-control">
+    </div>
+    <div class="form-group narrow-button">
+      <button class="btn btn-primary"
+              ng-click="list.menuSearch()">Narrow It Down For Me!</button>
+    </div>
+    <br><br><br><br>
+    <!-- found-items should be implemented as a component -->
+    <found-items found-items="...." on-remove="...."></found-items>
+
+    <!--found items de momento sin componente-->
+    <hr/>
+    <h1>DE MOMENTO SIN COMPONENTE</h1>
+    <ul>
+          <li ng-repeat="item in list.found ">
+            <table>
+              <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.short_name }}</td>
+                <td>{{ item.description }}</td>
+                <td>
+                   <button class="btn btn-default">
+                   <span class="glyphicon glyphicon-ok"></span>
+                    Don't want this one
+                  </button>
+                </td>
+              </tr>
+            </table>
+         </li>
+       </ul>
+
+
+  </div>
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
