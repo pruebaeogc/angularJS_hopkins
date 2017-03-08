@@ -1,0 +1,32 @@
+<div ng-if=!myInfoCtrl.user.firstName>
+  Not Signed Up Yet.
+  <a ui-sref="public.signup">
+    <br > Sign Up</a>
+</div>
+
+<h1>My info</h1>
+First Name:  {{ myInfoCtrl.user.firstName }} <br>
+Last Name: {{ myInfoCtrl.user.lastName }} <br>
+Mail: {{ myInfoCtrl.user.email }} <br>
+Telephone: {{ myInfoCtrl.user.phone }} <br>
+Favorite dish <br><br>
+<div ng-if="!myInfoCtrl.menuItem.name && myInfoCtrl.user.firstName">
+  <h2>No such menu number exists</h2>
+</div>
+<!--refactor reusar menu-item-component-->
+<div class="menu-item-tile col-md-6">
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="menu-item-photo">
+        <div>{{myInfoCtrl.menuItem.short_name}}</div>
+        <img class="img-responsive" width="250" height="150" ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.menuItem.short_name}}.jpg" alt="{{myInfoCtrl.menuItem.name}}">
+      </div>
+      <div class="menu-item-price">{{myInfoCtrl.menuItem.price_small | currency}}<span> {{myInfoCtrl.menuItem.small_portion_name}}</span> {{$ctrl.menuItem.price_large | currency}} <span>{{$ctrl.menuItem.large_portion_name}}</span></div>
+    </div>
+    <div class="menu-item-description col-sm-7">
+      <h3 class="menu-item-title">{{myInfoCtrl.menuItem.name}}</h3>
+      <p class="menu-item-details">{{myInfoCtrl.menuItem.description}}</p>
+    </div>
+  </div>
+  <hr class="visible-xs">
+</div>

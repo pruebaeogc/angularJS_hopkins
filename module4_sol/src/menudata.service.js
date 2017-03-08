@@ -37,8 +37,6 @@
             .then(function (result) {
               return result.data.menu_items;
             });
-
-
       };
       ////////////////////////////////////////////////////
     };
